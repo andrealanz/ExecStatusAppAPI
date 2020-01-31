@@ -34,7 +34,7 @@ def app_exec_stat_get():
 def app_exec_stat_get_id(timeStamp):
     API_ENDPOINT = "https://execstatusapp20191220061912.azurewebsites.net/api/ExecStats/" + timeStamp 
 
-    #get all items
+    #get item
     r=requests.get(url = API_ENDPOINT)
 
     #print data received 
@@ -69,6 +69,16 @@ def app_exec_stat_delete(timeStamp):
     data = r.json()
     print(data)
     
+def app_exec_stat_get_activity(task):
+    API_ENDPOINT = "https://execstatusapp20191220061912.azurewebsites.net/api/ExecStatsActivity/" + task
+    
+    #get all items with specified task
+    r=requests.get(url = API_ENDPOINT)
+
+    #print data received 
+    data = r.json()
+    print(data)
+    
 #print("post 2 test items:")
 #app_exec_stat_post("time1","testpy", "test", "test entry1", 0, 1, 2, 3)  
 #app_exec_stat_post("time2", "testpy", "test", "test entry2", 0, 1, 2, 3)
@@ -89,11 +99,13 @@ def app_exec_stat_delete(timeStamp):
 #app_exec_stat_delete("time2")
 
 #create and test API for current epoch time
-print("\n\ntest epoch time:\n")
+print("\n\nTEST API:\n")
 current_time = str(math.floor(time.time()))
 print("post epoch time")
-app_exec_stat_post(current_time, "testpy", "test", "test epoch", 0, 1, 2, 3)
-print("get entry")
+app_exec_stat_post(current_time, "testpy", "test", "testepoch", 0, 1, 2, 3)
+print("get entry by id")
 app_exec_stat_get_id(current_time)
+print("get entries by task")
+app_exec_stat_get_activity("testepoch")
 print("delete entry")
 app_exec_stat_delete(current_time)
