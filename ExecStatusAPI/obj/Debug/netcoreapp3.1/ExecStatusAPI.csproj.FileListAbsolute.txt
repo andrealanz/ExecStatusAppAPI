@@ -1,0 +1,11 @@
+C:\Users\lanza\source\repos\ExecStatusAPI\obj\Debug\netcoreapp3.1\ExecStatusAPI.csprojAssemblyReference.cache
+C:\Users\lanza\source\repos\ExecStatusAPI\obj\Debug\netcoreapp3.1\ExecStatusAPI.AssemblyInfoInputs.cache
+C:\Users\lanza\source\repos\ExecStatusAPI\obj\Debug\netcoreapp3.1\ExecStatusAPI.AssemblyInfo.cs
+C:\Users\lanza\source\repos\ExecStatusAPI\bin\Debug\netcoreapp3.1\ExecStatusAPI.exe
+C:\Users\lanza\source\repos\ExecStatusAPI\bin\Debug\netcoreapp3.1\ExecStatusAPI.deps.json
+C:\Users\lanza\source\repos\ExecStatusAPI\bin\Debug\netcoreapp3.1\ExecStatusAPI.runtimeconfig.json
+C:\Users\lanza\source\repos\ExecStatusAPI\bin\Debug\netcoreapp3.1\ExecStatusAPI.runtimeconfig.dev.json
+C:\Users\lanza\source\repos\ExecStatusAPI\bin\Debug\netcoreapp3.1\ExecStatusAPI.dll
+C:\Users\lanza\source\repos\ExecStatusAPI\bin\Debug\netcoreapp3.1\ExecStatusAPI.pdb
+C:\Users\lanza\source\repos\ExecStatusAPI\obj\Debug\netcoreapp3.1\ExecStatusAPI.dll
+C:\Users\lanza\source\repos\ExecStatusAPI\obj\Debug\netcoreapp3.1\ExecStatusAPI.pdb

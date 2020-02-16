@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ExecStatusAPI/1.0.0": {
+        "runtime": {
+          "ExecStatusAPI.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ExecStatusAPI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
