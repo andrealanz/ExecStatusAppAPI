@@ -11,25 +11,8 @@ namespace ExecStatusAPI
     class ExecStatusApp
     {
         static HttpClient client = new HttpClient();
-        
-        static void ShowExecStats(ExecStats stats)
-        {
-            if (stats != null)
-            {
-                Console.WriteLine(
-                   $"AppName: {stats.AppName}\n" +
-                   $"Id: {stats.Id}\n" +
-                   $"SourceMachine: {stats.SourceMachine}\n" +
-                   $"Status: {stats.Status}\n" +
-                   $"Task: {stats.Task}\n" +
-                   $"Time: {stats.Time}\n" +
-                   $"prop1: {stats.prop1}\n" +
-                   $"prop2: {stats.prop2}\n" +
-                   $"prop3: {stats.prop3}\n"
-                   );
-            }
-        }
 
+        //Put request
         static async Task<Uri> CreateExecStatsAsync(ExecStats stats)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync(
@@ -40,6 +23,7 @@ namespace ExecStatusAPI
             return response.Headers.Location;
         }
 
+        //Get request, returns a list of ExecStats
         static async Task<List<ExecStats>> GetExecStatsAsync()
         {
             string path = "ExecStats";
@@ -52,6 +36,7 @@ namespace ExecStatusAPI
             return stats;
         }
 
+        //Get request by Id
         static async Task<ExecStats> GetExecStatsAsync_Id(string Id)
         {
             string path = $"ExecStats/{Id}";
@@ -65,6 +50,7 @@ namespace ExecStatusAPI
             return stats;
         }
 
+        //Put request
         static async Task<ExecStats> UpdateExecStatsAsync(ExecStats stats)
         {
             HttpResponseMessage response = await client.PutAsJsonAsync(
@@ -76,6 +62,7 @@ namespace ExecStatusAPI
             return stats;
         }
 
+        //Delete request by id
         static async Task<HttpStatusCode> DeleteExecStatsAsync(string id)
         {
             HttpResponseMessage response = await client.DeleteAsync(
@@ -83,6 +70,7 @@ namespace ExecStatusAPI
             return response.StatusCode;
         }
 
+        //Get request by task, returns a list of ExecStats
         static async Task<List<ExecStats>> GetExecStatsActivityAsync_Id(string Id)
         {
             string path = $"ExecStatsActivity/{Id}";
@@ -112,7 +100,8 @@ namespace ExecStatusAPI
 
             try
             {
-                ExecStats stats1 = new ExecStats("1580505409", "machine1", "appname1", "task1",0, 1, 2, 3);
+                //create two new ExecStats
+                ExecStats stats1 = new ExecStats("1580505409", "machine1", "appname1", "task1", 0, 1, 2, 3);
                 ExecStats stats2 = new ExecStats("1580505410", "machine2", "appname2", "task2", 0, 1, 2, 3);
 
                 Console.WriteLine("PUT 2 ITEMS");
@@ -126,20 +115,20 @@ namespace ExecStatusAPI
                 all_stats = await GetExecStatsAsync();
                 foreach(var i in all_stats)
                 {
-                    ShowExecStats(i);
+                    i.ShowExecStats();
                 }
                 
                 Console.WriteLine("\nGET ITEMS BY ID");
                 ExecStats stats = null;
                 stats = await GetExecStatsAsync_Id("1580505409");
-                ShowExecStats(stats);
+                stats.ShowExecStats();
 
                 Console.WriteLine("\nGET ITEMS BY TASK");
                 all_stats = null;
                 all_stats = await GetExecStatsActivityAsync_Id("task2");
                 foreach (var i in all_stats)
                 {
-                    ShowExecStats(i);
+                    i.ShowExecStats();
                 }
 
                 Console.WriteLine("DELETE ALL");
@@ -157,8 +146,6 @@ namespace ExecStatusAPI
             Console.ReadLine();
             
         }
-
-        
-        
+  
     }
 }
