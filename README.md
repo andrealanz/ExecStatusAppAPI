@@ -1,4 +1,4 @@
-# WWT Automation ExecStatusAppAPI
+# WWT Automation ExecStatusApp API
 
 ### Author: Andrea Lanz
 
