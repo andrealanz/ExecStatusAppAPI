@@ -1,3 +1,8 @@
+#File: ExecStatusApp.py
+#Author: Andrea Lanz
+#Description: A Python3 script that defines function to interact with the
+#             ExecStatusApp RESTful API
+
 import requests
 import time
 import math
