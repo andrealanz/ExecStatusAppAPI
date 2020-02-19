@@ -46,6 +46,36 @@ function app_exec_stat_post {
     Invoke-RestMethod @params
 }
 
+#put request
+function app_exec_stat_put {
+    param([string] $id, 
+    [string] $AppName = "N/A", [string] $SourceMachine = "N/A", [string] $Status = "0", 
+    [string] $Task = "N/A", [string] $prop1 = "1", [string] $prop2 = "2", [string] $prop3 = "3")
+    
+    #define JSON message
+    $message = @{
+        Id = $id
+        AppName = $AppName
+        SourceMachine = $SourceMachine
+        Status = $Status
+        Task = $Task
+        prop1 = $prop1
+        prop2 = $prop2
+        prop3 = $prop3
+    }
+    #convert to JSON
+    $jsonMessage = $message | ConvertTo-Json
+
+    #define command parameters
+    $params = @{
+        Uri = $URL_ENDPOINT
+        Method = 'PUT'
+        Body = $jsonMessage
+        ContentType = 'application/json'
+    }
+    Invoke-RestMethod @params
+}
+
 #get request by task 
 function app_exec_stat_get_activity {
     param([string] $task)
