@@ -47,7 +47,7 @@ function Post-AppExecStat {
 }
 
 #put request
-function app_exec_stat_put {
+function Put-AppExecStat {
     param([string] $id, 
     [string] $AppName = "N/A", [string] $SourceMachine = "N/A", [string] $Status = "0", 
     [string] $Task = "N/A", [string] $prop1 = "1", [string] $prop2 = "2", [string] $prop3 = "3")
